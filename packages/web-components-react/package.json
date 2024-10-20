@@ -1,5 +1,5 @@
 {
-  "name": "@example/web-components-react",
+  "name": "@frameless/web-components-react",
   "version": "1.0.0-alpha.0",
   "author": "Community for NL Design System",
   "description": "React web components bundle based on the NL Design System architecture",
@@ -10,7 +10,7 @@
   "private": true,
   "repository": {
     "type": "git+ssh",
-    "url": "git@github.com:nl-design-system/example.git",
+    "url": "git@github.com:frameless/design-system.git",
     "directory": "packages/web-components-react"
   },
   "sideEffects": false,
@@ -29,7 +29,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@example/web-components-stencil": "workspace:*",
+    "@frameless/web-components-stencil": "workspace:*",
     "@types/node": "22.5.5",
     "@types/react": "18.3.7",
     "@types/react-dom": "18.3.0",
