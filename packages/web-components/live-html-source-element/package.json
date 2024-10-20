@@ -1,0 +1,24 @@
+{
+  "name": "@frameless/live-html-source-element",
+  "version": "0.0.0",
+  "author": "Frameless B.V.",
+  "description": "Custom element that shows the live HTML source for an element in the DOM.",
+  "license": "EUPL-1.2",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./define.mjs": "./src/define.mjs"
+  },
+  "keywords": [
+    "nl-design-system"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/design-system.git",
+    "directory": "packages/web-components/live-html-source-element"
+  }
+}
