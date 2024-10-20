@@ -1,0 +1,29 @@
+{
+  "name": "@frameless/eslint-config",
+  "version": "0.0.0",
+  "author": "Frameless B.V.",
+  "description": "Default configuration for ESLint",
+  "license": "EUPL-1.2",
+  "type": "module",
+  "main": "src/index.mjs",
+  "keywords": [
+    "eslint"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/design-system.git",
+    "directory": "packages/eslint-config"
+  },
+  "peerDependencies": {
+    "eslint-config-prettier": "^9",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-react": "^7",
+    "eslint": "^9",
+    "globals": "^15",
+    "typescript-eslint": "^8"
+  }
+}
