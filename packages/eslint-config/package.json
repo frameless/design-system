@@ -1,6 +1,6 @@
 {
   "name": "@frameless/eslint-config",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Frameless B.V.",
   "description": "Default configuration for ESLint",
   "license": "EUPL-1.2",

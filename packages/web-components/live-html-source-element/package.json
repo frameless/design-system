@@ -1,6 +1,6 @@
 {
   "name": "@frameless/live-html-source-element",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Frameless B.V.",
   "description": "Custom element that shows the live HTML source for an element in the DOM.",
   "license": "EUPL-1.2",
