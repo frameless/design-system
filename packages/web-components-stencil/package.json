@@ -1,5 +1,5 @@
 {
-  "name": "@example/web-components-stencil",
+  "name": "@frameless/web-components-stencil",
   "version": "1.0.0-alpha.0",
   "author": "Community for NL Design System",
   "description": "Stencil web components bundle based on the NL Design System architecture",
@@ -13,14 +13,14 @@
   "types": "./dist/types/components.d.ts",
   "collection": "./dist/collection/collection-manifest.json",
   "collection:main": "./dist/collection/collection-manifest.json",
-  "unpkg": "./dist/example/example.esm.js",
+  "unpkg": "./dist/frameless/frameless.esm.js",
   "files": [
     "dist/",
     "loader/"
   ],
   "repository": {
     "type": "git+ssh",
-    "url": "git@github.com:nl-design-system/example.git",
+    "url": "git@github.com:frameless/design-system.git",
     "directory": "packages/web-components-stencil"
   },
   "scripts": {
@@ -34,7 +34,7 @@
     "generate": "stencil generate"
   },
   "devDependencies": {
-    "@example/components-css": "workspace:*",
+    "@frameless/components-css": "workspace:*",
     "@stencil/react-output-target": "0.7.1",
     "@stencil/sass": "3.0.12",
     "@types/jest": "29.5.13",

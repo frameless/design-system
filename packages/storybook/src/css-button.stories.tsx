@@ -1,13 +1,13 @@
 /* @license CC0-1.0 */
 
-import readme from '@example/components-css/button/README.md?raw';
+import readme from '@frameless/components-css/button/README.md?raw';
 import type { Meta, StoryObj } from '@storybook/react';
 import { PropsWithChildren } from 'react';
-import '@example/components-css/button/index.scss';
+import '@frameless/components-css/button/index.scss';
 
 const Button = ({ children }: PropsWithChildren<{}>) => (
-  <button className="example-button" type="button">
-    <span className="example-button__text">{children}</span>
+  <button className="frameless-button" type="button">
+    <span className="frameless-button__text">{children}</span>
   </button>
 );
 
