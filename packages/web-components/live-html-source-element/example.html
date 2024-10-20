@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>frameless-live-html-source custom element</title>
+  </head>
+  <body>
+    <main>
+      <h1><code>frameless-live-html-source</code> custom element</h1>
+      <p>Custom element that shows the live HTML source for an element in the DOM.</p>
+      <hr />
+      <div contenteditable="true">
+        <h2>Edit this text</h2>
+        <p>There is a live display of the HTML contents of this editable region at the end of this page.</p>
+      </div>
+      <hr />
+      <section>
+        <h2>Live HTML</h2>
+        <section>
+          <h3><code>innerHTML</code></h3>
+          <pre><code id="innerHTML"><frameless-live-html-source query="[contenteditable]" type="innerHTML"></frameless-live-html-source></code></pre>
+          <p>Source for this example:</p>
+          <pre><code id="foo"><frameless-live-html-source query="#innerHTML" type="innerHTML"></frameless-live-html-source></code></pre>
+        </section>
+        <section>
+          <h3><code>outerHTML</code></h3>
+          <pre><code id="outerHTML"><frameless-live-html-source query="[contenteditable]" type="outerHTML"></frameless-live-html-source></code></pre>
+          <p>Source for this example:</p>
+          <pre><code id="foo"><frameless-live-html-source query="#outerHTML" type="innerHTML"></frameless-live-html-source></code></pre>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="src/define.mjs"></script>
+  </body>
+</html>
