@@ -5,7 +5,7 @@ import { FramelessButton } from '@frameless/web-components-react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { PropsWithChildren } from 'react';
 
-const Button = ({ children }: PropsWithChildren<{}>) => <FramelessButton>{children}</FramelessButton>;
+const Button = ({ children }: PropsWithChildren<object>) => <FramelessButton>{children}</FramelessButton>;
 
 const meta = {
   title: 'Web Component/Button',
