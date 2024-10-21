@@ -1,0 +1,195 @@
+<!doctype html>
+<!-- <script type="importmap" src="rijkshuisstijl-importmap.json"></script> -->
+<!-- <script type="importmap" src="rijkshuisstijl-community-importmap.json"></script> -->
+<link rel="preload" href="printer.svg" as="fetch" crossorigin />
+<script type="importmap">
+  {
+    "imports": {
+      "@rijkshuisstijl/icon/": "https://cdn.rijkshuisstijl.nl/belastingdienst.nl/",
+      "@rijkshuisstijl/icon/": "http://127.0.0.1:8080/iconset/rijkshuisstijl/",
+      "@rijkshuisstijl-community/icon/": "http://127.0.0.1:8080/iconset/rijkshuisstijl-community/"
+    }
+  }
+</script>
+<link
+  rel="iconset"
+  href="https://cdn.rijkshuisstijl.nl/belastingdienst.nl/icons@v2/"
+  data-key="@nl-design-sytem/icon/"
+/>
+<!-- <script type="importmap">
+    {
+      "imports": {
+        "@rijkshuisstijl/icon/": "https://nl-design-system.github.io/rvo/static/icons/functioneel/",
+        "@rijkshuisstijl/icon/": "./iconset/rijkshuisstijl/"
+        "@rijkshuisstijl-community/icon/": "./iconset/rijkshuisstijl-community/"
+      }
+    }
+  </script> -->
+<script type="module">
+  const createSvgUse = (doc, url) => {
+    const svg = doc.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    const use = doc.createElementNS('http://www.w3.org/2000/svg', 'use');
+    svg.setAttribute('width', '32');
+    svg.setAttribute('height', '32');
+    use.setAttribute('href', url);
+    svg.appendChild(use);
+    return svg;
+  };
+  class ExampleIcon extends HTMLElement {
+    constructor() {
+      super();
+
+      let url;
+      let module = this.getAttribute('module');
+      let src = this.getAttribute('src');
+
+      if (module) {
+        url = import.meta.resolve(url);
+      } else if (src) {
+        url = src;
+      }
+
+      if (url) {
+        (async () => {
+          fetch(url)
+            .then((response) => response.text())
+            .then((text) => {
+              const shadowRoot = this.attachShadow({ mode: 'closed' });
+              const span = document.createElement('span');
+              span.insertAdjacentHTML('beforeend', text);
+              while (span.firstChild) {
+                shadowRoot.appendChild(span.firstChild);
+              }
+            });
+        })();
+        this.style.display = 'inline-block';
+        this.style.width = '1em';
+        this.style.height = '1em';
+      }
+    }
+  }
+  customElements.define('example-icon', ExampleIcon);
+</script>
+<script type="module">
+  class ExampleOuterHTML extends HTMLElement {
+    constructor() {
+      super();
+      const target = this.ownerDocument.getElementById('target');
+
+      // Callback function to execute when mutations are observed
+      const callback = (mutationList, observer) => {
+        this.textContent = target.outerHTML;
+      };
+    }
+  }
+  customElements.define('example-outer-html', ExampleOuterHTML);
+
+  class ExampleInnerHTML extends HTMLElement {
+    static observedAttributes = ['target'];
+
+    constructor() {
+      super();
+      console.log('construct');
+      this.updateTarget(this.getAttribute('value'));
+
+      const update = () => {
+        this.textContent = this.targetNode ? this.targetNode.innerHTML : '';
+      };
+
+      // Callback function to execute when mutations are observed
+      const callback = (mutationList, observer) => {
+        update();
+      };
+
+      update();
+      this.render = update;
+      this.observer = new MutationObserver(callback);
+      this.connected = false;
+    }
+    updateTarget(value) {
+      const newTarget = this.ownerDocument.getElementById(value);
+
+      this.updateTargetNode(newTarget);
+    }
+
+    updateTargetNode(newTarget) {
+      if (newTarget) {
+        console.log('new target', newTarget);
+        this.observer.observe(newTarget, { attributes: true, childList: true, subtree: true });
+        this.render();
+      }
+      this.targetNode = newTarget;
+    }
+
+    attributeChangedCallback(name, _, value) {
+      console.log('attr change', name);
+      if (name === 'target') {
+        this.targetNode = this.updateTarget(value);
+      }
+    }
+
+    connectedCallback() {
+      this.connected = true;
+      if (this.targetNode) {
+        this.updateTargetNode(this.targetNode);
+      }
+    }
+
+    disconnectedCallback() {
+      this.connected = false;
+      this.observer.disconnect();
+    }
+  }
+  customElements.define('example-inner-html', ExampleInnerHTML);
+</script>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none" data-icon-set="@rijkshuisstijl/icon/">
+  <symbol id="afhaalpunt.svg">
+    <path
+      fill="currentColor"
+      d="m12 2h24v6h-24zm32 8h-40c-1 0-2 .801-2 2v16c0 1.199.801 2 2 2h6v3.199c0 .602.199 1 .602 1.402l8.797 8.797c.402.402.801.602 1.402.602h15.199c1.199 0 2-.801 2-2v-12h6c1.199 0 2-.801 2-2v-16c0-1.199-1-2-2-2zm-10 30h-12v-6c0-1.199-.801-2-2-2h-6v-8h20zm8-22h-4v-4h4zm0 0"
+    />
+  </symbol>
+  <symbol id="@rijkshuisstijl/icon/afhaalpunt.svg">
+    <path
+      fill="currentColor"
+      d="m12 2h24v6h-24zm32 8h-40c-1 0-2 .801-2 2v16c0 1.199.801 2 2 2h6v3.199c0 .602.199 1 .602 1.402l8.797 8.797c.402.402.801.602 1.402.602h15.199c1.199 0 2-.801 2-2v-12h6c1.199 0 2-.801 2-2v-16c0-1.199-1-2-2-2zm-10 30h-12v-6c0-1.199-.801-2-2-2h-6v-8h20zm8-22h-4v-4h4zm0 0"
+    />
+  </symbol>
+</svg>
+<template>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none" data-icon-set="@rijkshuisstijl/icon/">
+    <symbol id="@rijkshuisstijl/icon/afhaalpunt.svg">
+      <path
+        fill="currentColor"
+        d="m12 2h24v6h-24zm32 8h-40c-1 0-2 .801-2 2v16c0 1.199.801 2 2 2h6v3.199c0 .602.199 1 .602 1.402l8.797 8.797c.402.402.801.602 1.402.602h15.199c1.199 0 2-.801 2-2v-12h6c1.199 0 2-.801 2-2v-16c0-1.199-1-2-2-2zm-10 30h-12v-6c0-1.199-.801-2-2-2h-6v-8h20zm8-22h-4v-4h4zm0 0"
+      />
+    </symbol>
+  </svg>
+</template>
+
+<body style="color: red">
+  <svg height="48" width="48" xmlns="http://www.w3.org/2000/svg">
+    <use href="#afhaalpunt.svg"></use>
+  </svg>
+  <dl>
+    <div>
+      <dt>
+        <code><example-inner-html target="x"></example-inner-html></code>
+      </dt>
+      <dd id="x"><example-icon src="printer.svg#root"></example-icon></dd>
+    </div>
+    <div>
+      <dt>
+        <code><example-inner-html target="y"></example-inner-html></code>
+      </dt>
+      <dd id="y"><example-icon module="./rijkshuisstijl-maybe/icon/printer.svg"></example-icon></dd>
+    </div>
+    <div>
+      <dt>
+        <code><example-inner-html target="z"></example-inner-html></code>
+      </dt>
+      <dd id="z"><example-icon module="@rijkshuisstijl-community/icon/printer.svg"></example-icon></dd>
+    </div>
+  </dl>
+</body>
